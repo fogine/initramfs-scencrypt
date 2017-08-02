@@ -46,7 +46,7 @@ EOF
             /usr/bin/gpg --homedir "/etc/initcpio/gpg" --card-status >/dev/null 2>&1
             
             # now attempt to decrypt
-            if /usr/bin/gpg --homedir "/etc/initcpio/gpg" --decrypt -o "/keyfile.bin" "${key_file}"; then
+            if /usr/bin/gpg --homedir "/etc/initcpio/gpg" -o "/keyfile.bin" --decrypt "${key_file}"; then
                 # we got it!
                 key_file="/keyfile.bin"
             else
