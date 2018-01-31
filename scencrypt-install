@@ -49,7 +49,7 @@ build() {
             # public key. Note that this means decryption will fail if you add only the
             # public key to root's keyring.
             if [ -n "$keyid" ]; then
-                (gpg --homedir /root/.gnupg --export-secret-keys -a 0x${keyid} 2>/dev/null | egrep '.+' || \
+                (gpg --homedir /root/.gnupg --export-secret-keys -a 0x${keyid} 2>/dev/null || \
                  gpg --homedir /root/.gnupg --export -a 0x${keyid}) | \
                    gpg --homedir "$BUILDROOT/etc/initcpio/gpg" --import
             fi
